@@ -4,7 +4,21 @@ import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 
-const navItems = [
+interface NavChild {
+  label: string;
+  href: string;
+  external?: boolean;
+  active?: boolean;
+}
+
+interface NavItem {
+  label: string;
+  href: string;
+  active?: boolean;
+  children?: NavChild[];
+}
+
+const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   {
     label: "News",
